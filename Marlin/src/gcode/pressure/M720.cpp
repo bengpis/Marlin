@@ -1,12 +1,39 @@
-//Custom code to run the pressure sensor amplified using the HX710B
-
-#include "../../inc/MarlinConfigPre.h"
-#include "../gcode.h"
 #include "../../pressure/HX710AB.h"
+#include "../gcode.h"
+#include "../../core/serial.h"
 
-HX710B pressure_sensor(HX710B_OUT_PIN, HX710B_SCK_PIN);
-uint32_t time_update = 0;
+void GcodeSuite::M720() {
+// Initialize pins using Marlin's macros
+//
+//    FILE: HX710B_demo.ino
+//  AUTHOR: Rob Tillaart
+// PURPOSE: test basic behaviour
+//     URL: https://github.com/RobTillaart/HX710AB
 
-void GcodeSuite::M720(){
-    
+
+    #define M720_DATA_PIN   50
+    #define M720_CLOCK_PIN  52
+
+    HX710A hx(M720_DATA_PIN, M720_CLOCK_PIN);
+
+
+    static bool inited = false;
+    if (!inited) {
+        hx.begin();
+        inited = true;
+    }
+
+    // Normal channel
+    int32_t value = hx.read(false);
+    SERIAL_ECHO_START();
+    SERIAL_ECHOPGM("HX710B VALUE: ", value);
+    SERIAL_EOL();
+
+    // DVDD channel
+    value = hx.read(true);
+    SERIAL_ECHO_START();
+    SERIAL_ECHOPGM("HX710B DVDD: ", value);
+    SERIAL_EOL();
 }
+
+  

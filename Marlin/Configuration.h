@@ -90,8 +90,7 @@
   #define MOTHERBOARD BOARD_RAMPS_14_EFB
   #define I_MIN_PIN 70
   #define INVERT_I_DIR 70
-  #define HX710_SCK_PIN 52
-  #define HX710_OUT_PIN 50
+
 #endif
 
 
