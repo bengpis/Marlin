@@ -1104,6 +1104,8 @@ private:
     static void M702();
   #endif
 
+  static void M720();
+
   #if ENABLED(GCODE_REPEAT_MARKERS)
     static void M808();
   #endif
