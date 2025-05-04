@@ -111,10 +111,10 @@
 //
 #ifndef X_STOP_PIN
   #ifndef X_MIN_PIN
-    #define X_MIN_PIN                          3  // X-
+    #define X_MIN_PIN                          70  // X-
   #endif
   #ifndef X_MAX_PIN
-    #define X_MAX_PIN                          2  // X+
+    #define X_MAX_PIN                          70  // X+
   #endif
 #endif
 #ifndef Y_STOP_PIN
