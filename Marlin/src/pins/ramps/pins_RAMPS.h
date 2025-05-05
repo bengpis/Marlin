@@ -109,30 +109,30 @@
 //
 // Limit Switches
 //
-#ifndef X_STOP_PIN
-  #ifndef X_MIN_PIN
-    #define X_MIN_PIN                          70  // X-
+  #ifndef X_STOP_PIN
+    #ifndef X_MIN_PIN
+      #define X_MIN_PIN                          70  // X-
+    #endif
+    #ifndef X_MAX_PIN
+      #define X_MAX_PIN                          70  // X+
+    #endif
   #endif
-  #ifndef X_MAX_PIN
-    #define X_MAX_PIN                          70  // X+
+  #ifndef Y_STOP_PIN
+    #ifndef Y_MIN_PIN
+      #define Y_MIN_PIN                         14  // Y-
+    #endif
+    #ifndef Y_MAX_PIN
+      #define Y_MAX_PIN                         15  // Y+
+    #endif
   #endif
-#endif
-#ifndef Y_STOP_PIN
-  #ifndef Y_MIN_PIN
-    #define Y_MIN_PIN                         14  // Y-
+  #ifndef Z_STOP_PIN
+    #ifndef Z_MIN_PIN
+      #define Z_MIN_PIN                         18  // Z-
+    #endif
+    #ifndef Z_MAX_PIN
+      #define Z_MAX_PIN                         19  // Z+
+    #endif
   #endif
-  #ifndef Y_MAX_PIN
-    #define Y_MAX_PIN                         15  // Y+
-  #endif
-#endif
-#ifndef Z_STOP_PIN
-  #ifndef Z_MIN_PIN
-    #define Z_MIN_PIN                         18  // Z-
-  #endif
-  #ifndef Z_MAX_PIN
-    #define Z_MAX_PIN                         19  // Z+
-  #endif
-#endif
 
 //
 // Z Probe (when not Z_MIN_PIN)
