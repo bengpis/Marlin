@@ -71,10 +71,8 @@
   #define MOTHERBOARD BOARD_RAMPS_14_EFB
   #define MOTHERBOARD BOARD_RAMPS_14_EFB
   #define I_MIN_PIN 70
-  #define INVERT_I_DIR 70
   #define J_MIN_PIN 3
   #define J_MAX_PIN 2
-  #define INVERT_J_DIR 70
   #define NO_AUTO_ASSIGN_WARNING
 #endif
 
@@ -1234,16 +1232,16 @@
  * Endstop "Hit" State
  * Set to the state (HIGH or LOW) that applies to each endstop.
  */
-#define X_MIN_ENDSTOP_HIT_STATE LOW
-#define X_MAX_ENDSTOP_HIT_STATE LOW
-#define Y_MIN_ENDSTOP_HIT_STATE LOW
-#define Y_MAX_ENDSTOP_HIT_STATE LOW
-#define Z_MIN_ENDSTOP_HIT_STATE LOW
-#define Z_MAX_ENDSTOP_HIT_STATE LOW
-#define I_MIN_ENDSTOP_HIT_STATE LOW
-#define I_MAX_ENDSTOP_HIT_STATE LOW
-#define J_MIN_ENDSTOP_HIT_STATE LOW
-#define J_MAX_ENDSTOP_HIT_STATE LOW
+#define X_MIN_ENDSTOP_HIT_STATE HIGH
+#define X_MAX_ENDSTOP_HIT_STATE HIGH
+#define Y_MIN_ENDSTOP_HIT_STATE HIGH
+#define Y_MAX_ENDSTOP_HIT_STATE HIGH
+#define Z_MIN_ENDSTOP_HIT_STATE HIGH
+#define Z_MAX_ENDSTOP_HIT_STATE HIGH
+#define I_MIN_ENDSTOP_HIT_STATE HIGH
+#define I_MAX_ENDSTOP_HIT_STATE HIGH
+#define J_MIN_ENDSTOP_HIT_STATE HIGH
+#define J_MAX_ENDSTOP_HIT_STATE HIGH
 #define K_MIN_ENDSTOP_HIT_STATE HIGH
 #define K_MAX_ENDSTOP_HIT_STATE HIGH
 #define U_MIN_ENDSTOP_HIT_STATE HIGH
@@ -1801,8 +1799,8 @@
 #define Y_ENABLE_ON LOW
 #define Z_ENABLE_ON LOW
 #define E_ENABLE_ON LOW // For all extruders
-//#define I_ENABLE_ON LOW
-//#define J_ENABLE_ON LOW
+#define I_ENABLE_ON LOW
+#define J_ENABLE_ON LOW
 //#define K_ENABLE_ON LOW
 //#define U_ENABLE_ON LOW
 //#define V_ENABLE_ON LOW
@@ -1831,11 +1829,11 @@
 // @section motion
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
-#define INVERT_X_DIR false
+#define INVERT_X_DIR true
 #define INVERT_Y_DIR true
 #define INVERT_Z_DIR false
-//#define INVERT_I_DIR false
-//#define INVERT_J_DIR false
+#define INVERT_I_DIR false
+#define INVERT_J_DIR true
 //#define INVERT_K_DIR false
 //#define INVERT_U_DIR false
 //#define INVERT_V_DIR false
@@ -1877,9 +1875,9 @@
 // :[-1,1]
 #define X_HOME_DIR -1
 #define Y_HOME_DIR -1
-#define Z_HOME_DIR -1
-//#define I_HOME_DIR -1
-//#define J_HOME_DIR -1
+#define Z_HOME_DIR 1
+#define I_HOME_DIR -1
+#define J_HOME_DIR -1
 //#define K_HOME_DIR -1
 //#define U_HOME_DIR -1
 //#define V_HOME_DIR -1
@@ -1913,10 +1911,10 @@
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
 #define Z_MAX_POS 200
-//#define I_MIN_POS 0
-//#define I_MAX_POS 50
-//#define J_MIN_POS 0
-//#define J_MAX_POS 50
+#define I_MIN_POS 0
+#define I_MAX_POS 50
+#define J_MIN_POS 0
+#define J_MAX_POS 50
 //#define K_MIN_POS 0
 //#define K_MAX_POS 50
 //#define U_MIN_POS 0
@@ -2370,7 +2368,7 @@
 #endif
 
 // Homing speeds (linear=mm/min, rotational=°/min)
-#define HOMING_FEEDRATE_MM_M { (50*60), (50*60), (4*60) }
+#define HOMING_FEEDRATE_MM_M { (50*60), (50*60), (4*60), (4*60), (4*60) }
 
 // Edit homing feedrates with M210 and MarlinUI menu items
 //#define EDITABLE_HOMING_FEEDRATE
