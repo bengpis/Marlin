@@ -73,7 +73,7 @@
   #define I_MIN_PIN 70
   #define J_MIN_PIN 3
   #define J_MAX_PIN 2
-  #define NO_AUTO_ASSIGN_WARNING
+  //#define NO_AUTO_ASSIGN_WARNING
   #define NO_USER_FEEDBACK_WARNING
 #endif
 
@@ -581,7 +581,7 @@
 #define TEMP_SENSOR_5 0
 #define TEMP_SENSOR_6 0
 #define TEMP_SENSOR_7 0
-#define TEMP_SENSOR_BED 1
+#define TEMP_SENSOR_BED 0
 #define TEMP_SENSOR_PROBE 0
 #define TEMP_SENSOR_CHAMBER 0
 #define TEMP_SENSOR_COOLER 0
@@ -1324,7 +1324,7 @@
  * Override with M201
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 100, 10000, 3000 }
+#define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 100, 100, 3000 }
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
@@ -1892,7 +1892,7 @@
 #define X_SAFETY_STOP
 #define Y_SAFETY_STOP
 #define Z_SAFETY_STOP
-#define I_SAFETY_STOP
+//#define I_SAFETY_STOP
 #define J_SAFETY_STOP
 //#define K_SAFETY_STOP
 //#define U_SAFETY_STOP
@@ -1912,8 +1912,8 @@
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
 #define Z_MAX_POS 0
-#define I_MIN_POS 0
-#define I_MAX_POS 360
+#define I_MIN_POS -9999
+#define I_MAX_POS 9999
 #define J_MIN_POS 0
 #define J_MAX_POS 210
 //#define K_MIN_POS 0
@@ -2346,7 +2346,7 @@
 //#define MANUAL_X_HOME_POS 0
 //#define MANUAL_Y_HOME_POS 0
 //#define MANUAL_Z_HOME_POS 0
-//#define MANUAL_I_HOME_POS 0
+#define MANUAL_I_HOME_POS 0
 //#define MANUAL_J_HOME_POS 0
 //#define MANUAL_K_HOME_POS 0
 //#define MANUAL_U_HOME_POS 0
