@@ -74,6 +74,7 @@
   #define J_MIN_PIN 3
   #define J_MAX_PIN 2
   #define NO_AUTO_ASSIGN_WARNING
+  #define NO_USER_FEEDBACK_WARNING
 #endif
 
 // @section serial
