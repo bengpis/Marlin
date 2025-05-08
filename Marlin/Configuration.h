@@ -70,7 +70,8 @@
 #ifndef MOTHERBOARD
   #define MOTHERBOARD BOARD_RAMPS_14_EFB
   #define MOTHERBOARD BOARD_RAMPS_14_EFB
-  //#define I_MIN_PIN 70
+  #define I_MIN_PIN 3
+  #define I_MAX_PIN 2
   #define J_MIN_PIN 3
   #define J_MAX_PIN 2
   //#define NO_AUTO_ASSIGN_WARNING
@@ -98,9 +99,9 @@
  * you commonly experience drop-outs during host printing.
  * You may try up to 1000000 to speed up SD file transfer.
  *
- * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
+ * :[2400, 9600, 19200, 38400, 57600, 115200(max value for CH340 clones), 250000, 500000, 1000000]
  */
-#define BAUDRATE 115200
+#define BAUDRATE 250000
 
 //#define BAUD_RATE_GCODE     // Enable G-code M575 to set the baud rate
 
@@ -160,7 +161,7 @@
  */
 #define X_DRIVER_TYPE  TB6600
 #define Y_DRIVER_TYPE  A4988
-#define Z_DRIVER_TYPE  A4988
+#define Z_DRIVER_TYPE  DRV8825
 //#define X2_DRIVER_TYPE A4988
 //#define Y2_DRIVER_TYPE A4988
 //#define Z2_DRIVER_TYPE A4988
@@ -1239,7 +1240,7 @@
 #define Y_MAX_ENDSTOP_HIT_STATE HIGH
 #define Z_MIN_ENDSTOP_HIT_STATE HIGH
 #define Z_MAX_ENDSTOP_HIT_STATE HIGH
-//#define I_MIN_ENDSTOP_HIT_STATE HIGH
+#define I_MIN_ENDSTOP_HIT_STATE HIGH
 #define I_MAX_ENDSTOP_HIT_STATE HIGH
 #define J_MIN_ENDSTOP_HIT_STATE HIGH
 #define J_MAX_ENDSTOP_HIT_STATE HIGH
@@ -1311,7 +1312,7 @@
  * Override with M203
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 300, 200, 100, 300, 300 }
+#define DEFAULT_MAX_FEEDRATE          { 300, 1000, 400, 300, 2000 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -1832,7 +1833,7 @@
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
 #define INVERT_X_DIR true
 #define INVERT_Y_DIR true
-#define INVERT_Z_DIR false
+#define INVERT_Z_DIR true
 #define INVERT_I_DIR false
 #define INVERT_J_DIR true
 //#define INVERT_K_DIR false
@@ -1877,7 +1878,7 @@
 #define X_HOME_DIR -1
 #define Y_HOME_DIR -1
 #define Z_HOME_DIR 1
-#define I_HOME_DIR 0
+#define I_HOME_DIR -1
 #define J_HOME_DIR -1
 //#define K_HOME_DIR -1
 //#define U_HOME_DIR -1
@@ -1892,7 +1893,7 @@
 #define X_SAFETY_STOP
 #define Y_SAFETY_STOP
 #define Z_SAFETY_STOP
-//#define I_SAFETY_STOP
+#define I_SAFETY_STOP
 #define J_SAFETY_STOP
 //#define K_SAFETY_STOP
 //#define U_SAFETY_STOP
@@ -2346,7 +2347,7 @@
 //#define MANUAL_X_HOME_POS 0
 //#define MANUAL_Y_HOME_POS 0
 //#define MANUAL_Z_HOME_POS 0
-#define MANUAL_I_HOME_POS 0
+//#define MANUAL_I_HOME_POS 0
 //#define MANUAL_J_HOME_POS 0
 //#define MANUAL_K_HOME_POS 0
 //#define MANUAL_U_HOME_POS 0
