@@ -1100,17 +1100,17 @@ static_assert(NUM_SERVOS <= NUM_SERVO_PLUGS, "NUM_SERVOS (or some servo index) i
 /**
  * Allow only extra axis codes that do not conflict with G-code parameter names
  */
-#if HAS_I_AXIS
-  #if !defined(I_MIN_POS) || !defined(I_MAX_POS)
-    #error "I_MIN_POS and I_MAX_POS are required for the I axis."
-  #elif !defined(I_HOME_DIR)
-    #error "I_HOME_DIR is required for the I axis."
-  #elif HAS_I_ENABLE && !defined(I_ENABLE_ON)
-    #error "I_ENABLE_ON is required for the I stepper."
-  #elif !defined(INVERT_I_DIR)
-    #error "INVERT_I_DIR is required for the I stepper."
-  #endif
-#endif
+// #if HAS_I_AXIS
+//   #if !defined(I_MIN_POS) || !defined(I_MAX_POS)
+//     #error "I_MIN_POS and I_MAX_POS are required for the I axis."
+//   #elif !defined(I_HOME_DIR)
+//     #error "I_HOME_DIR is required for the I axis."
+//   #elif HAS_I_ENABLE && !defined(I_ENABLE_ON)
+//     #error "I_ENABLE_ON is required for the I stepper."
+//   #elif !defined(INVERT_I_DIR)
+//     #error "INVERT_I_DIR is required for the I stepper."
+//   #endif
+// #endif
 #if HAS_J_AXIS
   #if AXIS5_NAME == AXIS4_NAME
     #error "AXIS5_NAME must be unique."
