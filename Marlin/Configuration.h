@@ -1300,7 +1300,7 @@
  * Override with M92 (when enabled below)
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 100, 500, 17.7777}
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 100, 8.8888, 17.7777}
 
 /**
  * Enable support for M92. Disable to save at least ~530 bytes of flash.
@@ -1835,7 +1835,7 @@
 #define INVERT_Y_DIR true
 #define INVERT_Z_DIR true
 #define INVERT_I_DIR false
-#define INVERT_J_DIR false
+#define INVERT_J_DIR true
 //#define INVERT_K_DIR false
 //#define INVERT_U_DIR false
 //#define INVERT_V_DIR false
@@ -1875,11 +1875,11 @@
 
 // Direction of endstops when homing; 1=MAX, -1=MIN
 // :[-1,1]
-#define X_HOME_DIR -1
+#define X_HOME_DIR 1
 #define Y_HOME_DIR -1
 #define Z_HOME_DIR 1
 #define I_HOME_DIR 0
-#define J_HOME_DIR -1
+#define J_HOME_DIR 1
 //#define K_HOME_DIR -1
 //#define U_HOME_DIR -1
 //#define V_HOME_DIR -1
@@ -1903,8 +1903,8 @@
 // @section geometry
 
 // The size of the printable area
-#define X_BED_SIZE 200
-#define Y_BED_SIZE 200
+#define X_BED_SIZE 360
+#define Y_BED_SIZE 400
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
@@ -1916,7 +1916,7 @@
 #define I_MIN_POS -200
 #define I_MAX_POS 200
 #define J_MIN_POS 0
-#define J_MAX_POS 330
+#define J_MAX_POS 400
 //#define K_MIN_POS 0
 //#define K_MAX_POS 50
 //#define U_MIN_POS 0
@@ -2348,7 +2348,7 @@
 #define MANUAL_Y_HOME_POS 94.5
 //#define MANUAL_Z_HOME_POS 0
 #define MANUAL_I_HOME_POS 0
-//#define MANUAL_J_HOME_POS 0
+#define MANUAL_J_HOME_POS 290.057
 //#define MANUAL_K_HOME_POS 0
 //#define MANUAL_U_HOME_POS 0
 //#define MANUAL_V_HOME_POS 0
