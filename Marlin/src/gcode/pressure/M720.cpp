@@ -21,27 +21,31 @@
  */
 
 #include "../gcode.h"
-#include "..\..\..\src\module\HX710AB\HX710AB.h"
+#include "../../../src/module/HX710AB/HX710AB.h"
 
-/**
- * M105: Read hot end and bed temperature
- */
-void GcodeSuite::M105() {
+// Define pins for your setup (adjust as needed)
+#define HX710B_DATA_PIN 50
+#define HX710B_CLOCK_PIN 52
 
-  const int8_t target_extruder = get_target_extruder_from_command();
-  if (target_extruder < 0) return;
+// Create a static HX710B instance so it persists between calls
+static HX710B hx710b(HX710B_DATA_PIN, HX710B_CLOCK_PIN);
+static bool hx710b_initialized = false;
 
-  SERIAL_ECHOPGM(STR_OK);
+void GcodeSuite::M720() {
+  if (!hx710b_initialized) {
+    hx710b.begin();
+    // Adjust calibration to your raw measurements
+    hx710b.calibrate(-4000000, 0, -8388608, 40);
+    hx710b_initialized = true;
+  }
 
-  #if HAS_TEMP_SENSOR
+  // Read the calibrated value (change argument if needed)
+  float vacuum = hx710b.read(1);
+  float vacuum_kPa = hx710b.get_units(10);
 
-    thermalManager.print_heater_states(target_extruder OPTARG(HAS_TEMP_REDUNDANT, parser.boolval('R')));
-
-    SERIAL_EOL();
-
-  #else
-
-    SERIAL_ECHOLNPGM(" T:0"); // Some hosts send M105 to test the serial connection
-
-  #endif
+  // Report the value in a Marlin-style response
+  SERIAL_ECHO_START();
+  SERIAL_ECHO("RAW: ", vacuum);
+  SERIAL_ECHO("Vacuum (kPa): ", vacuum_kPa);
+  SERIAL_EOL();
 }

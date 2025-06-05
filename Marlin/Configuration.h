@@ -1300,7 +1300,7 @@
  * Override with M92 (when enabled below)
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 100, 8.8888, 17.7777}
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 80.25, 79.75, 8.8888, 19}
 
 /**
  * Enable support for M92. Disable to save at least ~530 bytes of flash.
@@ -2345,10 +2345,10 @@
 // Manually set the home position. Leave these undefined for automatic settings.
 // For DELTA this is the top-center of the Cartesian print volume.
 //#define MANUAL_X_HOME_POS 0
-#define MANUAL_Y_HOME_POS 94.5
+#define MANUAL_Y_HOME_POS 87.263
 //#define MANUAL_Z_HOME_POS 0
 #define MANUAL_I_HOME_POS 0
-#define MANUAL_J_HOME_POS 290.057
+#define MANUAL_J_HOME_POS 284.824
 //#define MANUAL_K_HOME_POS 0
 //#define MANUAL_U_HOME_POS 0
 //#define MANUAL_V_HOME_POS 0

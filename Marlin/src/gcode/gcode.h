@@ -1202,6 +1202,8 @@ private:
     static void MMU3_report(const bool forReplay=true);
   #endif
 
+  static void M720();
+
   #if ENABLED(GCODE_REPEAT_MARKERS)
     static void M808();
   #endif
